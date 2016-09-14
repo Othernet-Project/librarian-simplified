@@ -25,7 +25,7 @@ ${_('Files')}
                         full_path = filename
                 %>
                 <div class="views-reader" id="views-reader">
-                    <iframe class="views-reader-frame" src="${h.quoted_url('filemanager:direct', path=full_path)}" id="views-reader-frame"></iframe>
+                    <iframe class="views-reader-frame" src="${h.quoted_url('filemanager:direct', path=full_path)}" id="views-reader-frame" data-content="${content}" data-placeholder="${placeholder}"></iframe>
                 </div>
                 % endif
             </div>
@@ -33,3 +33,6 @@ ${_('Files')}
     </div>
 </%block>
 
+<%block name="extra_scripts">
+<script src="${assets['js/simplified']}"></script>
+</%block>
