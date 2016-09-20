@@ -20,11 +20,10 @@
     }
     content = readerFrame.data('content');
     placeholder = readerFrame.data('placeholder');
-    return readerFrame.on('load', function() {
-      if ((readerFrame.contents().prop('readyState')) === 'complete') {
-        return onFrameLoad();
-      }
-    });
+    readerFrame.on('load', onFrameLoad);
+    if ((readerFrame.contents().prop('readyState')) === 'complete') {
+      return onFrameLoad();
+    }
   };
   return setup();
 })(this, this.jQuery, this.templates);

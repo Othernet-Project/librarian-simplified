@@ -17,9 +17,10 @@
       return
     content = readerFrame.data 'content'
     placeholder = readerFrame.data 'placeholder'
-    readerFrame.on 'load', () ->
-      if (readerFrame.contents().prop 'readyState') is 'complete'
-        onFrameLoad()
+    readerFrame.on 'load', onFrameLoad
+    # In case the iframe was already rendered
+    if (readerFrame.contents().prop 'readyState') is 'complete'
+      onFrameLoad()
 
   setup()
 
